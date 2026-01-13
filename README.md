@@ -9,7 +9,8 @@
 ### 📝 Input Form
 
 <img width="700" alt="Screenshot 2026-01-13 013950" src="https://github.com/user-attachments/assets/2e51bef7-28a2-44cf-be8b-c67f7a7b6dda" />
-<img width="700" alt="Screenshot 2026-01-13 014017" src="https://github.com/user-attachments/assets/e5d91cfa-176b-4c34-8259-4fa24411fd0f" />
+<img width="700" alt="Screenshot 2026-01-13 014017" src="https://github.com/user-attachments/assets/9b602f18-0d7f-4655-b4ba-c133f5468782" />
+
 
 ### 📊 Prediction Result
 
