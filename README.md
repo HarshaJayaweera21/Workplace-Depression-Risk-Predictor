@@ -112,16 +112,21 @@ Workplace-Depression-Risk-Predictor/
 │   ├── main.py
 │   ├── models/
 │   ├── requirements.txt
-│   └── .gitignore
+│   ├── Dockerfile
+│   └── .dockerignore
 │
 ├── predictor-ui/           # React frontend
 │   ├── src/
 │   ├── public/
 │   ├── package.json
-│   └── vite.config.js
+│   ├── vite.config.js
+│   ├── Dockerfile
+│   └── .dockerignore
 │
 ├── dataset/                # Dataset used for training
 ├── notebooks/              # Model training & evaluation notebook
+├── docker-compose.yml      # Docker orchestration
+├── .gitignore
 └── README.md
 ```
 ---
@@ -135,7 +140,26 @@ git clone https://github.com/HarshaJayaweera21/Workplace-Depression-Risk-Predict
 cd Workplace-Depression-Risk-Predictor
 ```
 
-### 2️⃣ Run the Predictor API (FastAPI)
+### Option A: Using Docker (Recommended)
+
+Make sure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is installed and running.
+
+```bash
+docker compose up --build
+```
+
+| Service  | URL                    |
+|----------|------------------------|
+| Frontend | http://localhost       |
+| Backend  | http://localhost:8000  |
+
+### Option B: Manual Setup
+
+> ⚠️ **Before running manually**, update the following:
+> - In `predictor-api/main.py`, add your frontend's dev server origin (e.g., `http://localhost:5173`) to the `allow_origins` list.
+> - Create a `predictor-ui/.env` file with: `VITE_API_URL=http://127.0.0.1:8000`
+
+#### 2️⃣ Run the Predictor API (FastAPI)
 
 ```bash
 cd predictor-api
@@ -147,7 +171,7 @@ uvicorn main:app --reload
 ```
 - Backend will be available at: http://127.0.0.1:8000
 
-### 3️⃣ Run the Predictor UI (React)
+#### 3️⃣ Run the Predictor UI (React)
 
 ```bash
 cd predictor-ui
