@@ -1,0 +1,20 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE files
+.idea/
+
+# Docker files 
+Dockerfile
+.dockerignore
+
+# Git
+.git/
+
+# Test files
+test_main.http

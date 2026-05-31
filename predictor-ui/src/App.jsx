@@ -4,7 +4,7 @@ import {
 } from 'lucide-react'
 import './App.css'
 import reactLogo from './assets/react.svg'
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 function App() {
 
@@ -47,7 +47,7 @@ function App() {
         try {
             await new Promise(resolve => setTimeout(resolve, 1500));
 
-            const response = await fetch("http://127.0.0.1:8000/predict", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/predict`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(requestData)
@@ -181,7 +181,7 @@ function App() {
                         <div className="input-group">
                             <label>Age</label>
                             <input type="number" min="17" max="70" placeholder="17-70"
-                                   value={age} onChange={e => setAge(e.target.value)} />
+                                value={age} onChange={e => setAge(e.target.value)} />
                         </div>
                     </div>
                 </div>
@@ -196,17 +196,17 @@ function App() {
                         <div className="input-group">
                             <label>Work Pressure (1-5)</label>
                             <input type="number" min="1" max="5" placeholder="1-5"
-                                   value={workPressure} onChange={e => setWorkPressure(e.target.value)} />
+                                value={workPressure} onChange={e => setWorkPressure(e.target.value)} />
                         </div>
                         <div className="input-group">
                             <label>Job Satisfaction (1-5)</label>
                             <input type="number" min="1" max="5" placeholder="1-5"
-                                   value={jobSatisfaction} onChange={e => setJobSatisfaction(e.target.value)} />
+                                value={jobSatisfaction} onChange={e => setJobSatisfaction(e.target.value)} />
                         </div>
                         <div className="input-group full-width">
                             <label>Work Hours Per Day</label>
                             <input type="number" min="0" max="24" placeholder="e.g., 8"
-                                   value={workHours} onChange={e => setWorkHours(e.target.value)} />
+                                value={workHours} onChange={e => setWorkHours(e.target.value)} />
                         </div>
                     </div>
                 </div>
@@ -246,7 +246,7 @@ function App() {
                         <div className="input-group full-width">
                             <label>Financial Stress (1-5)</label>
                             <input type="number" min="1" max="5" placeholder="1-5"
-                                   value={financialStress} onChange={e => setFinancialStress(e.target.value)} />
+                                value={financialStress} onChange={e => setFinancialStress(e.target.value)} />
                         </div>
                     </div>
                 </div>
@@ -316,10 +316,10 @@ function App() {
                                             <div className="risk-meter-container">
                                                 <div className="risk-bar-bg">
                                                     <div className="risk-bar-fill"
-                                                         style={{
-                                                             height: `${prediction.percentage}%`,
-                                                             backgroundColor: details.color
-                                                         }}>
+                                                        style={{
+                                                            height: `${prediction.percentage}%`,
+                                                            backgroundColor: details.color
+                                                        }}>
                                                     </div>
                                                 </div>
                                                 <span className="risk-percentage">{prediction.percentage}%</span>
